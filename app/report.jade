@@ -28,7 +28,7 @@ block content
                         .form-group
                           label.col-md-2.control-label.pt9  平台
                           .col-md-7.pl0
-                            input(type="text",placeholder="平台").form-control
+                            input(type="text",placeholder="搜索平台").form-control
                         .form-group
                           .form-group-box.clearfix
                             .checkbox.pull-left
@@ -41,7 +41,7 @@ block content
                                 |反选
                             hr.filter-hr
                         .form-group
-                          .form-group-box.checkboxs
+                          .form-group-box.checkboxs#filterPlatforms
                             .checkbox
                               label
                                 input(type="checkbox")
@@ -63,7 +63,7 @@ block content
                       .form-group
                           label.col-md-2.control-label.pt9  渠道
                           .col-md-7.pl0
-                            input(type="text",placeholder="渠道").form-control
+                            input(type="text",placeholder="搜索渠道").form-control
                         .form-group
                           .form-group-box.clearfix
                             .checkbox.pull-left
@@ -76,7 +76,7 @@ block content
                                 |反选
                             hr.filter-hr
                         .form-group
-                          .form-group-box.checkboxs
+                          .form-group-box.checkboxs#filterChannels
                             .checkbox
                               label
                                 input(type="checkbox")
@@ -97,7 +97,7 @@ block content
                       .form-group
                           label.col-md-2.control-label.pt9  服务器
                           .col-md-7.pl0
-                            input(type="text",placeholder="服务器").form-control
+                            input(type="text",placeholder="搜索服务器").form-control
                         .form-group
                           .form-group-box.clearfix
                             .checkbox.pull-left
@@ -110,7 +110,7 @@ block content
                                 |反选
                             hr.filter-hr
                         .form-group
-                          .form-group-box.checkboxs
+                          .form-group-box.checkboxs#filterServers
                             .checkbox
                               label
                                 input(type="checkbox")
@@ -128,12 +128,15 @@ block content
                                 input(type="checkbox")
                                 |服务器4
                     .dropdown-menu-foot.pull-right.mt15
-                      button(type="submit").btn.btn-success 应用
-                      button.btn.btn-default#closeSearch 取消
+                      button(type="submit").btn.btn-success#filterApplyBtn 应用
+                      button.btn.btn-default#filterCloseBtn 取消
             .btn-group.ml5
-              button.btn.btn-default.toolbar-btn 平台：全部
-              button.btn.btn-default.toolbar-btn 渠道：全部
-              button.btn.btn-default.toolbar-btn 服务器：全部
+              button.btn.btn-default.toolbar-btn#filterResultPlatforms 平台：
+                  span 全部
+              button.btn.btn-default.toolbar-btn#filteResultChannels 渠道：
+                  span 全部
+              button.btn.btn-default.toolbar-btn#filterResultServers 服务器：
+                  span 全部
             .btn-group.pull-right
               button.btn.btn-custome-lightblue.navbar-btn-date.toolbar-btn
                 i.fa.fa-calendar.mr5.icon-large

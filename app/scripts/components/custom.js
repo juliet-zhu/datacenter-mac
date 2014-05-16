@@ -514,11 +514,41 @@ $(document).ready(function(){
 
   }); 
 
-  $('#closeSearch').click(function(e){
+  $('#filterCloseBtn').click(function(e){
     e.preventDefault();
     $(this).parents('.dropdown-menu').slideUp();
   }); 
-  
+
+  $('#filterApplyBtn').click(function(e){
+    e.preventDefault();
+    var $platforms = $('#filterPlatforms').find('input:checked'),
+        $channels = $('#filterChannels').find('input:checked'),
+        $servers = $('#filterServers').find('input:checked'),
+        platformNames = [],
+        channelNames = [],
+        serverNames = [],
+        platformNamesStr = "",
+        channelNamesStr = "",
+        serverNamesStr = "";
+    $platforms.each(function(){
+      platformNames.push($(this).parent().text());
+    });
+    $channels.each(function(){
+      channelNames.push($(this).parent().text());
+    });
+    $servers.each(function(){
+      serverNames.push($(this).parent().text());
+    });
+
+    platformNamesStr = platformNames.join(" ");
+    channelNamesStr = channelNames.join(" ");
+    serverNamesStr = serverNames.join(" ");
+
+    $('#filterResultPlatforms').find('span').text(platformNamesStr);
+    $('#filteResultChannels').find('span').text(channelNamesStr);
+    $('#filterResultServers').find('span').text(serverNamesStr);
+
+  })
 });
 
 

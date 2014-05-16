@@ -449,18 +449,78 @@ $(document).ready(function(){
   
 /* Filter search button */
 $(document).ready(function(){
-  // $('#filterBtn').on('click',function(e){
-  //   var $this = $(this),
-  //       $dropdownMenu = $this.next('.dropdown-menu');
-  //   if($dropdownMenu.css('display')=='block'){
-  //     $dropdownMenu.slideUp();
-  //   }else if($dropdownMenu.css('display')=='none'){
-  //     $dropdownMenu.slideDown();
-  //   }
-  // })
-  var $dropdownMenu = $('#filterBtn').next('.dropdown-menu');
+  $('#filterBtn').on('click',function(e){
+    var $this = $(this),
+        $dropdownMenu = $this.next('.dropdown-menu');
+    if($dropdownMenu.css('display')=='block'){
+      $dropdownMenu.slideUp();
+    }else if($dropdownMenu.css('display')=='none'){
       $dropdownMenu.slideDown();
+    }
+  })
+  
+  $('.checkAll').click(function(){
+      var $this = $(this),
+          $checkBoxs = $this.parents('.form-group').next().find('input[type="checkbox"]'),
+          checked = $checkBoxs.prop('checked'),
+          thisChecked = $(this).prop('checked'),
+          $checkBoxsLength = $checkBoxs.size();
+      if(thisChecked){
+        $this.parents('.form-group-box').find('.checkInverse').prop('checked',false);
+        $checkBoxs.each(function(){
+          $(this).prop('checked',true);
+        });
+      }else{
+        $checkBoxs.each(function(){
+          $(this).prop('checked',false);
+        });
+      }
+  }); 
+  $('.checkInverse').click(function(){
+      var $this = $(this),
+          $checkBoxs = $this.parents('.form-group').next().find('input[type="checkbox"]'),
+          thisChecked = $(this).prop('checked');
+      if(thisChecked){
+        $this.parents('.form-group-box').find('.checkAll').prop('checked',false);
+        $checkBoxs.each(function(){
+        var checked = $(this).prop('checked');
+        if(checked){
+          $(this).prop('checked',false);
+        }else{
+          $(this).prop('checked',true);
+        }
+        
+      });
+      }else{
+        $checkBoxs.each(function(){
+        var checked = $(this).prop('checked');
+        if(checked){
+          $(this).prop('checked',false);
+        }else{
+          $(this).prop('checked',true);
+        }
+        
+      });
+      }
+  });
+  $('.checkboxs').find('input[type="checkbox"]').click(function(){
+    var $this = $(this),
+        length = $this.parents('.form-group-box').find(':checkbox:not(:checked)');
+        $this.parents('.form-horizontal').find('.checkInverse').prop('checked',false);
+        if(length){
+          $this.parents('.form-horizontal').find('.checkAll').prop('checked',false);
+        }
+
+
+  }); 
+
+  $('#closeSearch').click(function(e){
+    e.preventDefault();
+    $(this).parents('.dropdown-menu').slideUp();
+  }); 
+  
 });
+
 
 /* StickUp */
 jQuery(function($) {

@@ -23,25 +23,25 @@ block content
                 |筛选
               .dropdown-menu(role="menu",style="min-width:800px;")
                 form(role="form")
-                  .container
-                    .dropdown-menu-left.form-horizontal.clearfix(style="width:33%")
+                  .container.pb10.pt10
+                    .dropdown-menu-left.form-horizontal.clearfix(style="width:33%").pull-left
                         .form-group
                           label.col-md-2.control-label.pt9  平台
                           .col-md-7.pl0
                             input(type="text",placeholder="平台").form-control
                         .form-group
-                          .col-md-7.col-md-offset-3
+                          .form-group-box.clearfix
                             .checkbox.pull-left
                               label
-                                input(type="checkbox")
+                                input(type="checkbox",title="选中/取消选中").checkAll
                                 |全选
                             .checkbox.pull-left.ml15
                               label
-                                input(type="checkbox")
+                                input(type="checkbox",title="反选").checkInverse
                                 |反选
                             hr.filter-hr
                         .form-group
-                          .col-md-7.col-md-offset-3
+                          .form-group-box.checkboxs
                             .checkbox
                               label
                                 input(type="checkbox")
@@ -59,9 +59,77 @@ block content
                                 input(type="checkbox")
                                 |平台4
 
-                    .dropdown-menu-mid.form-horizontal.clearfix(style="width:33%")
-                    .dropdown-menu-right.form-horizontal.clearfix(style="width:33%")
-
+                    .dropdown-menu-mid.form-horizontal.clearfix(style="width:33%").pull-left
+                      .form-group
+                          label.col-md-2.control-label.pt9  渠道
+                          .col-md-7.pl0
+                            input(type="text",placeholder="渠道").form-control
+                        .form-group
+                          .form-group-box.clearfix
+                            .checkbox.pull-left
+                              label
+                                input(type="checkbox",title="选中/取消选中").checkAll
+                                |全选
+                            .checkbox.pull-left.ml15
+                              label
+                                input(type="checkbox",title="反选").checkInverse
+                                |反选
+                            hr.filter-hr
+                        .form-group
+                          .form-group-box.checkboxs
+                            .checkbox
+                              label
+                                input(type="checkbox")
+                                |渠道1
+                            .checkbox
+                              label
+                                input(type="checkbox")
+                                |渠道2
+                            .checkbox
+                              label
+                                input(type="checkbox")
+                                |渠道3
+                            .checkbox
+                              label
+                                input(type="checkbox")
+                                |渠道4
+                    .dropdown-menu-right.form-horizontal.clearfix(style="width:33%").pull-left
+                      .form-group
+                          label.col-md-2.control-label.pt9  服务器
+                          .col-md-7.pl0
+                            input(type="text",placeholder="服务器").form-control
+                        .form-group
+                          .form-group-box.clearfix
+                            .checkbox.pull-left
+                              label
+                                input(type="checkbox",title="选中/取消选中").checkAll
+                                |全选
+                            .checkbox.pull-left.ml15
+                              label
+                                input(type="checkbox",title="反选").checkInverse
+                                |反选
+                            hr.filter-hr
+                        .form-group
+                          .form-group-box.checkboxs
+                            .checkbox
+                              label
+                                input(type="checkbox")
+                                |服务器1
+                            .checkbox
+                              label
+                                input(type="checkbox")
+                                |服务器2
+                            .checkbox
+                              label
+                                input(type="checkbox")
+                                |服务器3
+                            .checkbox
+                              label
+                                input(type="checkbox")
+                                |服务器4
+                    .dropdown-menu-foot.pull-right.mt15
+                      button(type="submit").btn.btn-success 应用
+                      button.btn.btn-default#closeSearch 取消
             .btn-group.ml5
               button.btn.btn-default.toolbar-btn 平台：全部
               button.btn.btn-default.toolbar-btn 渠道：全部

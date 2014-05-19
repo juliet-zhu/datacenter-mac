@@ -24,12 +24,17 @@
 }
 
 .daterangepicker .ranges {
-  width: 160px;
+  width: 220px;
   text-align: left;
 }
 
 .daterangepicker .ranges .range_inputs>div {
   float: left;
+}
+
+.daterangepicker .ranges .range_inputs > .btn_list {
+  margin-top: 37px;
+  float: right;
 }
 
 .daterangepicker .ranges .range_inputs>div:nth-child(2) {
@@ -41,14 +46,6 @@
   max-width: 270px;
 }
 
-.daterangepicker.show-calendar .calendar {
-    display: block;
-}
-
-.daterangepicker .calendar.single .calendar-date {
-  border: none;
-}
-
 .daterangepicker .calendar th, .daterangepicker .calendar td {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   white-space: nowrap;
@@ -56,8 +53,7 @@
   min-width: 32px;
 }
 
-.daterangepicker .daterangepicker_start_input label,
-.daterangepicker .daterangepicker_end_input label {
+.daterangepicker .ranges label {
   color: #333;
   display: block;
   font-size: 11px;
@@ -74,19 +70,21 @@
   font-size: 11px;
 }
 
+
 .daterangepicker .ranges .input-mini {
   background-color: #eee;
   border: 1px solid #ccc;
   border-radius: 4px;
   color: #555;
   display: block;
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 600;
   height: 30px;
   line-height: 30px;
   vertical-align: middle;
   margin: 0 0 10px 0;
   padding: 0 6px;
-  width: 74px;
+  width: 103px;
 }
 
 .daterangepicker .ranges ul {
@@ -101,11 +99,17 @@
   border: 1px solid #f5f5f5;
   color: #08c;
   padding: 3px 12px;
+  width:103px;
   margin-bottom: 8px;
-  -webkit-border-radius: 5px;
+   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   cursor: pointer;
+  float: left;
+}
+
+.daterangepicker .ranges li.li_1,.daterangepicker .ranges li.li_3,.daterangepicker .ranges li.li_5 {
+	margin-left: 10px;
 }
 
 .daterangepicker .ranges li.active, .daterangepicker .ranges li:hover {
@@ -251,17 +255,4 @@
 .daterangepicker select.hourselect, .daterangepicker select.minuteselect, .daterangepicker select.ampmselect {
   width: 50px;
   margin-bottom: 0;
-}
-
-.daterangepicker_start_input {
-  float: left;
-}
-
-.daterangepicker_end_input {
-  float: left; 
-  padding-left: 11px
-}
-
-.daterangepicker th.month {
-  width: auto;
 }

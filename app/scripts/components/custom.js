@@ -27,6 +27,7 @@ $(document).ready(function (){
         }else{
           $(this).next('ul').slideDown();
         }
+        $(this).parents('ul').find('a.subdrop').removeClass('subdrop');
         $(this).addClass("subdrop");
       }else if($(this).hasClass("subdrop")){
         $(this).removeClass("subdrop");
@@ -556,7 +557,10 @@ $(document).ready(function(){
 jQuery(function($) {
   $(document).ready( function() {
     //enabling stickUp on the '.navbar-wrapper' class
-    $('#report .subnav').stickUp();
+    if($('#report .subnav').size()){
+      $('#report .subnav').stickUp();
+    }
+    
   });
 });
 

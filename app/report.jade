@@ -2,6 +2,8 @@ extends templates/base
 block vars
   - page = "report"
   - BASEURL = "../"
+block head 
+  link(rel="stylesheet",href="styles/components/daterangepicker-bs3.css")
 block content
   .content
     // Subnav
@@ -130,14 +132,29 @@ block content
                     .dropdown-menu-foot.pull-right.mt15
                       button(type="submit").btn.btn-success#filterApplyBtn 应用
                       button.btn.btn-default#filterCloseBtn 取消
-            .btn-group.ml5
-              button.btn.btn-default.toolbar-btn#filterResultPlatforms 平台：
+            ul.nav.nav-pills.ml15.pull-left.filter-result
+              li.dropdown
+                a(href="#").btn.btn-default#filterResultPlatforms 平台：
                   span 全部
-              button.btn.btn-default.toolbar-btn#filteResultChannels 渠道：
+                ul.dropdown-menu
+                  li 平台1
+                  li 平台1
+                  li 平台1
+              li.dropdown
+                a(href="#")#filteResultChannels.btn.btn-default 渠道：
                   span 全部
-              button.btn.btn-default.toolbar-btn#filterResultServers 服务器：
+                ul.dropdown-menu
+                  li 渠道1
+                  li 渠道1
+                  li 渠道1
+              li.dropdown
+                a(href="#")#filterResultServers.btn.btn-default 渠道：
                   span 全部
-            .btn-group.pull-right
+                ul.dropdown-menu
+                  li 服务器1
+                  li 服务器1
+                  li 服务器1
+            .btn-group.pull-right.ml15
               button.btn.btn-custome-lightblue.navbar-btn-date.toolbar-btn
                 i.fa.fa-calendar.mr5.icon-large
                 span 2014-04-16 - 2014-05-15
@@ -147,4 +164,7 @@ block content
 
     include templates/sidebar-report
     .mainbar
-      include templates/report  
+      include templates/report 
+block js
+  script(src="scripts/components/moment.js")
+  script(src="scripts/components/daterangepicker.js")

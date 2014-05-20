@@ -38,9 +38,10 @@ module.exports = function (grunt) {
             //         livereload: true
             //     }
             // },
-            gruntfile: {
-                files: ['Gruntfile.js']
-            },
+            // gruntfile: {
+            //     files: ['Gruntfile.js'],
+            //     tasks: ['default']
+            // },
             styles: {
                 files: ['<%= config.app %>/styles/{,*/}*.styl'],
                 tasks: ['stylus']
@@ -185,7 +186,8 @@ module.exports = function (grunt) {
                         '!templates',
                         '!**/*.jade',
                         '!**/*.styl',
-                        '!bower_components/**'
+                        '!bower_components/**',
+                        '!styles/inc'
                     ]
                 }]
             }
@@ -215,7 +217,7 @@ module.exports = function (grunt) {
                 files:[{
                   expand:true,
                   cwd:'<%= config.app %>/styles',
-                  src:['**/*.styl','!vars.styl','!mixins.styl'],
+                  src:['**/*.styl','!inc/**'],
                   dest:'<%= config.dev %>/styles',
                   ext:'.css'
                 }]
@@ -244,17 +246,22 @@ module.exports = function (grunt) {
             'pub/js/components/components.min.js':['pub/js/components/components.js']
             } 
           }   
+        },
+        concurrent:{
+            server:['copy','jade:dev','stylus:dev'],
+            dev:['jade','stylus']
         }
     });
 
 
     grunt.registerTask('serve', function (target) {
-        if (target === 'pub') {
-            return grunt.task.run(['pub', 'connect:pub:keepalive']);
-        }
+        // if (target === 'pub') {
+        //     return grunt.task.run(['pub', 'connect:pub:keepalive']);
+        // }
 
         grunt.task.run([
-            'clean:server',
+            'clean:dev',
+            'concurrent:server',
             'connect:livereload',
             'watch'
         ]);
@@ -276,8 +283,7 @@ module.exports = function (grunt) {
     grunt.registerTask('dev', [
         'clean:dev',
         'copy:dev',
-         'stylus',
-         'jade'
+         'concurrent:dev'
     ]);
 
     grunt.registerTask('default', ['dev']);

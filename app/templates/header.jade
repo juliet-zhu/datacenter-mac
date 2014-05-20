@@ -10,16 +10,44 @@
       .col-md-6.col-md-offset-2
         //Top tool bar
         ul.top-tool-bar.clearfix
+          li  
+            a(href="#")
+              i.fa.fa-external-link.mr5
+              |SDK
           li 
-            a(href="#") SDK
+            a(href="#") 
+              i.fa.fa-file-o.mr5
+              |文档
+          li.dropdown 
+            a(href="#",data-toggle="dropdown")
+              i.fa.fa-envelope-o.mr5
+              |消息(5)
+            ul.dropdown-menu.dropdown-menu-custome(role="menu",style="z-index:999")
+              li
+                // Heading - h5
+                h5
+                  i.fa.fa-envelope-o.mr5
+                  |消息
+                hr
+              li 
+                span 系统更新通知
+                hr
+              li 
+                span 系统更新通知
+                hr
+              li 
+                .drop-foot
+                  a(href="#") 查看所有
+                    i.fa.fa-caret-down
+
           li 
-            a(href="#") 文档
-          li 
-            a(href="#") 消息(5)
-          li 
-            a(href="#") 账号
+            a(href="#") 
+              i.fa.fa-user.mr5
+              |账号
           li.account 
             |你好，
             span.account Juliet
-            a(href="#") 退出
+            a(href="#") 
+              |退出
+              i.fa.fa-sign-out.ml5
 // Header ends

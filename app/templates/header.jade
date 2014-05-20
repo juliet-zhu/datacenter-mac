@@ -1,5 +1,19 @@
 // Header starts
 .header
+  // Show all messages modal
+  .modal.fade#showAllMessages
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+          h4.modal-title 全部消息
+        .modal-body
+          p 系统更新通知 
+          p 系统更新通知
+          p 系统更新通知
+        .modal-footer
+          button.btn.btn-primary(type='button',data-dismiss='modal') 确认
+          //-button.btn.btn-default(type='button',data-dismiss='modal' ) 取消
   .container
     .row
       // Logo section
@@ -37,7 +51,7 @@
                 hr
               li 
                 .drop-foot
-                  a(href="#") 查看所有
+                  a(href="#",data-toggle="modal",data-target="#showAllMessages") 查看所有
                     i.fa.fa-caret-down
 
           li 

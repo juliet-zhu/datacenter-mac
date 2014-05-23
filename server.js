@@ -9,10 +9,10 @@ module.exports = function server(connect,options,middlewares){
     	function (req, res, next){
             if(req.url=='/show-message'){
                 console.log('=================================================');
-                console.log('hi,arrived');
+                console.log('Hi,request is arrived');
                 console.log('=================================================');
-                var data = ['系统更新通知1','系统更新通知2','系统更新通知3'];
-                res.end(data);
+                var data = {message:['系统更新通知1','系统更新通知2','系统更新通知3']};
+                res.end(JSON.stringify(data));
             }
                             
         });
